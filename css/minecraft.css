@@ -1,13 +1,17 @@
 body{
     line-height: 0;
 }
+
+.col-6.paddingCol, .col-3.paddingCol{
+    padding: 0;
+}
+
 #board{
     display:inline-block;
+    float:right;
     width:600px;
     height:600px;
     position: relative;
-    top:50%;
-    transform: translateY(-50%);
     box-sizing: border-box;
 }
 
@@ -95,6 +99,42 @@ body{
       position:relative;
       right:0;
       width:50%;
-      height:100vh;
-      background-color:grey;
+      height:600px;
+      background-color:black;
+      opacity:0.8;
+
   }
+
+  .feature{
+      height:60px;
+      width:60px;
+      border:2px solid white;
+      margin:auto;
+      margin-bottom: 30px;
+      position: relative;
+      top:30%;
+      transform: translateY(-30%);
+  }
+
+  #objects{
+      width:30px;
+      height:30px;
+      margin-top: -15px;
+  }
+
+  #shovel, #pioche, #axe{
+    background-image: url("../pictures/shovel.png");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat
+  }
+  #pioche{
+    background-image: url("../pictures/pioche.png");
+  }
+
+  #axe{
+    background-image: url("../pictures/axe.png");
+  }
+
+  
+
