@@ -81,3 +81,20 @@ body{
     background-size: contain;
     background-repeat: no-repeat
   }
+  .batman{
+    display:inline-block;
+    height: 30px;
+    width: 30px;
+    background-image: url("../pictures/batman.jpg");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat
+  }
+
+  #features{
+      position:relative;
+      right:0;
+      width:50%;
+      height:100vh;
+      background-color:grey;
+  }
