@@ -72,8 +72,33 @@ minecraft.layOut = function () {
 }
 
 minecraft.features = function () {
-    
+    $(`.ground`).on('click', function() {
+        $(this).addClass("blueSky");
+        $(this).removeClass('ground');
+    })
+
+    $(`.groundHerb`).on('click', function() {
+        $(this).addClass("blueSky");
+        $(this).removeClass('groundHerb');
+    })
+
+    $(`.stone`).on('click', function() {
+        $(this).addClass("blueSky");
+        $(this).removeClass('stone');
+    })
+
+    $(`.wood`).on('click', function() {
+        $(this).addClass("blueSky");
+        $(this).removeClass('wood');
+    })
+
+    $(`.green`).on('click', function() {
+        $(this).addClass("blueSky");
+        $(this).removeClass('green');
+    })
 }
+
+
 
 
 minecraft.start();
