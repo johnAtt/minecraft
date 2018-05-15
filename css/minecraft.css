@@ -1,0 +1,83 @@
+body{
+    line-height: 0;
+}
+#board{
+    display:inline-block;
+    width:600px;
+    height:600px;
+    position: relative;
+    top:50%;
+    transform: translateY(-50%);
+    box-sizing: border-box;
+}
+
+.blueSky{
+    display:inline-block;
+    border-bottom: none;
+    height:30px;
+    width:30px;
+    background-color:lightblue;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat
+}
+
+.cloud{
+    display:inline-block;
+    height:30px;
+    width:30px;
+    background-color:white;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat
+}
+
+.ground{
+    display:inline-block;
+    height:30px;
+    width:30px;
+    background-image:url("../pictures/ground.jpg");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat
+}
+
+.green {
+    display:inline-block;
+    height: 30px;
+    width: 30px;
+    background-image: url("../pictures/green.png");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat
+  }
+  
+  .groundHerb {
+    display:inline-block;
+    height: 30px;
+    width: 30px;
+    background-image: url("../pictures/groundHerb.jpg");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat
+  }
+  
+  .stone {
+    display:inline-block;
+    height: 30px;
+    width: 30px;
+    background-image: url("../pictures/stone.png");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat
+  }
+
+  .wood{
+    display:inline-block;
+    height: 30px;
+    width: 30px;
+    background-image: url("../pictures/wood.jpg");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat
+  }
