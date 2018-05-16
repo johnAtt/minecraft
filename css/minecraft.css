@@ -2,6 +2,32 @@ body{
     line-height: 0;
 }
 
+.mainPage{
+  display:none;
+}
+
+.startPage{
+ width:100%;
+ height:100vh;
+  background-image:url("../pictures/wallpap.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  text-align: center;
+  
+}
+button{
+  width:180px;
+  height:60px;
+  border-radius:80px;
+  position:relative;
+  top:20%;
+  background-image:url("http://pixelartmaker.com/art/0a8a31a07ea245d.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
 .col-6.paddingCol, .col-3.paddingCol{
     padding: 0;
 }
@@ -55,7 +81,7 @@ body{
     background-size: contain;
     background-repeat: no-repeat
   }
-  
+
   .groundHerb {
     display:inline-block;
     height: 30px;
@@ -65,7 +91,7 @@ body{
     background-size: contain;
     background-repeat: no-repeat
   }
-  
+
   .stone {
     display:inline-block;
     height: 30px;
@@ -106,7 +132,8 @@ body{
 
   }
 
-  .feature{
+  #axe, #shovel, #pioche, #objects{
+    display: block !important ;
       height:60px;
       width:60px;
       border:2px solid white;
@@ -136,5 +163,3 @@ body{
   #axe{
     background-image: url("../pictures/axe.png");
   }
-
-
