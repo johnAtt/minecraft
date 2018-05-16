@@ -96,6 +96,7 @@ body{
   }
 
   #features{
+      display:block;
       position:relative;
       right:0;
       width:50%;
@@ -117,8 +118,8 @@ body{
   }
 
   #objects{
-      width:30px;
-      height:30px;
+      width:32px;
+      height:32px;
       margin-top: -15px;
   }
 
@@ -136,5 +137,4 @@ body{
     background-image: url("../pictures/axe.png");
   }
 
-  
 

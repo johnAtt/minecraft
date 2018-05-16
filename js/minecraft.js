@@ -1,4 +1,5 @@
 var minecraft = {};
+var enabled= 0 ;
 var map = [
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 7, 0, 0, 0],
@@ -27,6 +28,11 @@ var map = [
 minecraft.start = function () {
     minecraft.layOut();
     minecraft.features();
+    minecraft.featuresGround();
+    minecraft.featuresGroundHerb();
+    minecraft.featuresStone();
+    minecraft.featuresWood();
+    minecraft.featuresGreen();
 }
 
 minecraft.layOut = function () {
@@ -72,29 +78,66 @@ minecraft.layOut = function () {
 }
 
 minecraft.features = function () {
-    $(`.ground`).on('click', function() {
-        $(this).addClass("blueSky");
-        $(this).removeClass('ground');
+    $(`#shovel`).on('click', function () {
+        enabled = 1;
     })
 
-    $(`.groundHerb`).on('click', function() {
-        $(this).addClass("blueSky");
-        $(this).removeClass('groundHerb');
+    $(`#axe`).on('click', function () {
+        enabled = 2
     })
 
-    $(`.stone`).on('click', function() {
-        $(this).addClass("blueSky");
-        $(this).removeClass('stone');
+    $(`#pioche`).on('click', function () {
+        enabled = 3
     })
+}
 
-    $(`.wood`).on('click', function() {
-        $(this).addClass("blueSky");
-        $(this).removeClass('wood');
+
+minecraft.featuresGround = function () {
+        $(`.ground`).on('click', function () {
+            if (enabled == 1) {
+            $(this).addClass("blueSky");
+            $(this).removeClass('ground');
+            document.getElementById('objects').className= 'ground';
+            }
+        })
+    }
+
+minecraft.featuresGroundHerb = function () {
+        $(`.groundHerb`).on('click', function () {
+            if (enabled == 1) {
+            $(this).addClass("blueSky");
+            $(this).removeClass('groundHerb');
+            document.getElementById('objects').className= 'groundHerb';
+        }
     })
+}
 
-    $(`.green`).on('click', function() {
-        $(this).addClass("blueSky");
-        $(this).removeClass('green');
+minecraft.featuresStone = function () {
+        $(`.stone`).on('click', function () {
+            if (enabled == 3) {
+            $(this).addClass("blueSky");
+            $(this).removeClass('stone');
+            document.getElementById('objects').className= 'stone';
+        }
+    })
+}
+
+minecraft.featuresWood = function () {
+        $(`.wood`).on('click', function () {
+            if (enabled == 2) {
+            $(this).addClass("blueSky");
+            $(this).removeClass('wood');
+            document.getElementById('objects').className= 'wood';
+        }
+    })
+}
+minecraft.featuresGreen = function () {
+        $(`.green`).on('click', function () {
+            if (enabled == 2) {
+            $(this).addClass("blueSky");
+            $(this).removeClass('green');
+            document.getElementById('objects').className= 'green';
+        }
     })
 }
 
