@@ -125,7 +125,8 @@ minecraft.features = function () {
         $('#board').addClass("pioche");
     })
     $(`#objects`).on('click', function () {
-        $('#board').removeClass();
+      $('#board').removeClass();
+      $('#board').addClass("hand");
         enabled = 4
     })
 

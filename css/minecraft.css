@@ -193,3 +193,6 @@ button{
   .gun{
     cursor : url(../pictures/target.cur), auto;
 }
+  .hand{
+    cursor : url(../pictures/hand.cur), auto;
+  }
