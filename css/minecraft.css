@@ -176,3 +176,7 @@ button{
   .axe{
       cursor : url(../pictures/axe.cur), auto;
   }
+
+  .hand{
+    cursor : url(../pictures/hand.cur), auto;
+  }

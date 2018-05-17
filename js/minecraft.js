@@ -127,6 +127,7 @@ minecraft.features = function () {
     })
     $(`#objects`).on('click', function () {
       $('#board').removeClass();
+      $('#board').addClass("hand");
         enabled = 4
     })
 
@@ -188,7 +189,7 @@ minecraft.newBg = function () {
         if (enabled == 4 && this.className == "blueSky draw" || this.className == "draw blueSky") {
             var i = $(this).data("Hcoordonate");
             var j = $(this).data("Vcoordonate");
-            
+
             if (!$("#" + (i + 1) + "-" + j).hasClass("blueSky")) {
                 $(this).removeClass("green blueSky stone wood ground groundHerb");
                 var bg = document.getElementById('objects').className;
