@@ -24,7 +24,6 @@ var map = [
 ];
 
 
-
 minecraft.start = function () {
     minecraft.layOut();
     minecraft.features();
@@ -44,43 +43,68 @@ minecraft.layOut = function () {
                 $('#board').append($(ground));
                 $(ground).addClass('ground');
                 $(ground).addClass('draw');
+                $(ground).data('Hcoordonate', i);
+                $(ground).data('Vcoordonate', j);
+                $(ground).attr('id', '' + i + '-' + j);
+
             }
             else if (map[i][j] == 2) {
                 var floor = document.createElement('div');
                 $('#board').append($(floor));
                 $(floor).addClass('groundHerb');
                 $(floor).addClass('draw');
+                $(floor).data("Hcoordonate", i);
+                $(floor).data("Vcoordonate", j);
+                $(floor).attr('id', i + '-' + j);
             }
             else if (map[i][j] == 0) {
                 var blueSky = document.createElement('div');
                 $('#board').append($(blueSky));
                 $(blueSky).addClass("blueSky");
                 $(blueSky).addClass('draw');
+                $(blueSky).data("Hcoordonate", i);
+                $(blueSky).data("Vcoordonate", j);
+                $(blueSky).attr('id', i + '-' + j);
             } else if (map[i][j] == 3) {
                 var wood = document.createElement('div');
                 $('#board').append($(wood));
                 $(wood).addClass("wood");
                 $(wood).addClass('draw');
+                $(wood).data("Hcoordonate", i);
+                $(wood).data("Vcoordonate", j);
+                $(wood).attr('id', i + '-' + j);
             } else if (map[i][j] == 4) {
                 var green = document.createElement('div');
                 $('#board').append($(green));
                 $(green).addClass("green");
                 $(green).addClass('draw');
+                $(green).data("Hcoordonate", i);
+                $(green).data("Vcoordonate", j);
+                $(green).attr('id',  i + '-' + j);
             } else if (map[i][j] == 5) {
                 var stone = document.createElement('div');
                 $('#board').append($(stone));
                 $(stone).addClass("stone");
                 $(stone).addClass('draw');
+                $(stone).data("Hcoordonate", i);
+                $(stone).data("Vcoordonate", j);
+                $(stone).attr('id', i + '-' + j);
             } else if (map[i][j] == 6) {
                 var batman = document.createElement('div');
                 $('#board').append($(batman));
                 $(batman).addClass("batman");
                 $(batman).addClass('draw');
+                $(batman).data("Hcoordonate", i);
+                $(batman).data("Vcoordonate", j);
+                $(batman).attr('id', i + '-' + j);
             } else if (map[i][j] == 7) {
                 var cloud = document.createElement('div');
                 $('#board').append($(cloud));
                 $(cloud).addClass("cloud");
                 $(cloud).addClass('draw');
+                $(cloud).data("Hcoordonate", i);
+                $(cloud).data("Vcoordonate", j);
+                $(cloud).attr('id', i + '-' + j);
             }
         }
     }
@@ -152,32 +176,34 @@ minecraft.featuresGreen = function () {
         }
     })
 }
-
+var list;
 minecraft.newBg = function () {
     $(`.draw`).on('click', function () {
-        if (enabled == 4 && this.className == "blueSky draw" || this.className=="draw blueSky") {
-            $(this).removeClass("green blueSky stone wood ground groundHerb");
-            var bg = document.getElementById('objects').className;
-            $(this).addClass(`${bg}`);
-            minecraft.features();
-            minecraft.featuresGround();
-            minecraft.featuresGroundHerb();
-            minecraft.featuresStone();
-            minecraft.featuresWood();
-            minecraft.featuresGreen();
+        if (enabled == 4 && this.className == "blueSky draw" || this.className == "draw blueSky") {
+            var i = $(this).data("Hcoordonate");
+            var j = $(this).data("Vcoordonate");
+            if (!$("#" + (i+1) + "-" + j).hasClass("blueSky")) {
+                $(this).removeClass("green blueSky stone wood ground groundHerb");
+                var bg = document.getElementById('objects').className;
+                $(this).addClass(`${bg}`);
+                minecraft.features();
+                minecraft.featuresGround();
+                minecraft.featuresGroundHerb();
+                minecraft.featuresStone();
+                minecraft.featuresWood();
+                minecraft.featuresGreen();
+            }
         }
     })
 }
 
-
-
 $(`#startGame`).on('click', function () {
-$('.startPage').css({
-    "display":"none"
-})
-$('.mainPage').css({
-    "display":"block"
-})
-minecraft.start();
+    $('.startPage').css({
+        "display": "none"
+    })
+    $('.mainPage').css({
+        "display": "block"
+    })
+    minecraft.start();
 })
 
