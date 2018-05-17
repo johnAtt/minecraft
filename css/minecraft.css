@@ -14,7 +14,7 @@ body{
   background-size: cover;
   background-repeat: no-repeat;
   text-align: center;
-  
+
 }
 button{
   width:180px;
@@ -156,10 +156,23 @@ button{
     background-size: contain;
     background-repeat: no-repeat
   }
+
+  .shovel{
+      cursor : url(../pictures/shovel.cur), auto;
+  }
+
   #pioche{
     background-image: url("../pictures/pioche.png");
   }
 
+  .pioche{
+      cursor : url(../pictures/pickaxe.cur), auto;
+  }
+
+
   #axe{
     background-image: url("../pictures/axe.png");
+  }
+  .axe{
+      cursor : url(../pictures/axe.cur), auto;
   }
