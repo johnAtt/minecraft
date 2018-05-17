@@ -108,14 +108,22 @@ minecraft.layOut = function () {
 minecraft.features = function () {
     $(`#shovel`).on('click', function () {
         enabled = 1;
+        $('#board').removeClass()
+        $('#board').addClass("shovel")
     })
 
     $(`#axe`).on('click', function () {
         enabled = 2
+        $('#board').removeClass();
+        $('#board').addClass("axe");
+
+
     })
 
     $(`#pioche`).on('click', function () {
-        enabled = 3
+        enabled = 3;
+        $('#board').removeClass();
+        $('#board').addClass("pioche");
     })
     $(`#objects`).on('click', function () {
         enabled = 4
@@ -210,4 +218,3 @@ $(`#startGame`).on('click', function () {
     })
     minecraft.start();
 })
-
