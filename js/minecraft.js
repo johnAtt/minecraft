@@ -1,26 +1,26 @@
 var minecraft = {};
-var enabled = 0; var woodItem = 0; var stoneItem = 0; var groundItem = 0; var greenItem = 0; var groundHerbItem = 0;
+var enabled = 0;var batmanItem=0; var woodItem = 0; var stoneItem = 0; var groundItem = 0; var greenItem = 0; var groundHerbItem = 0;
 var map = [
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 7, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 7, 7, 7, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 7, 7, 7, 7, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 4, 4, 4, 4, 4, 0, 0, 0, 7, 7, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 4, 4, 4, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 4, 4, 4, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 4, 4, 4, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 4, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 5, 5, 0, 0, 0],
-    [0, 0, 4, 4, 4, 0, 6, 0, 0, 3, 0, 0, 0, 0, 5, 5, 5, 5, 0, 0],
-    [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
-    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 7, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 7, 7, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 7, 7, 7, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 7, 7, 7, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 7, 7, 7, 7, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 4, 4, 4, 4, 4, 0, 0, 0, 7, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 4, 4, 4, 0, 0, 0, 7, 7, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 4, 4, 4, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 4, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 4, 4, 4, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 4, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 4, 4, 4, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 4, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 4, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 5, 5, 0, 0, 0],
+    [0, 0, 4, 4, 4, 0, 0, 0, 0, 3, 0, 0, 0, 0, 5, 5, 5, 5, 0, 0, 0, 0, 4, 4, 4, 0, 6, 0, 0, 3, 0, 0, 0, 0, 5, 5, 5, 5, 0, 0],
+    [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
 ];
 
 
@@ -106,6 +106,7 @@ minecraft.layOut = function () {
 }
 
 minecraft.features = function () {
+
     $(`#shovel`).on('click', function () {
         enabled = 1;
         $('#board').removeClass()
@@ -116,8 +117,6 @@ minecraft.features = function () {
         enabled = 2
         $('#board').removeClass();
         $('#board').addClass("axe");
-
-
     })
 
     $(`#pioche`).on('click', function () {
@@ -126,11 +125,24 @@ minecraft.features = function () {
         $('#board').addClass("pioche");
     })
     $(`#objects`).on('click', function () {
+        $('#board').removeClass();
         enabled = 4
     })
 
+    $(`#shear`).on('click', function () {
+        enabled = 5;
+        $('#board').removeClass()
+        $('#board').addClass("shear")
+    })
+
+    $(`#gun`).on('click', function () {
+        enabled = 6;
+        $('#board').removeClass()
+        $('#board').addClass("gun")
+    })
+
     $(`.ground`).on('click', function () {
-        if (enabled == 1) {
+        if (enabled === 1) {
             $(this).addClass("blueSky");
             $(this).removeClass('ground');
             document.getElementById('objects').className = 'ground';
@@ -138,10 +150,8 @@ minecraft.features = function () {
         }
     })
 
-
-
     $(`.groundHerb`).on('click', function () {
-        if (enabled == 1 ) {
+        if (enabled === 1) {
             $(this).addClass("blueSky");
             $(this).removeClass('groundHerb');
             document.getElementById('objects').className = 'groundHerb';
@@ -150,9 +160,8 @@ minecraft.features = function () {
     })
 
 
-
     $(`.stone`).on('click', function () {
-        if (enabled == 3) {
+        if (enabled === 3) {
             $(this).addClass("blueSky");
             $(this).removeClass('stone');
             document.getElementById('objects').className = 'stone';
@@ -163,7 +172,7 @@ minecraft.features = function () {
 
 
     $(`.wood`).on('click', function () {
-        if (enabled == 2) {
+        if (enabled === 2) {
             $(this).addClass("blueSky");
             $(this).removeClass('wood');
             document.getElementById('objects').className = 'wood';
@@ -172,11 +181,20 @@ minecraft.features = function () {
     })
 
     $(`.green`).on('click', function () {
-        if (enabled == 2) {
+        if (enabled === 5) {
             $(this).addClass("blueSky");
             $(this).removeClass('green');
             document.getElementById('objects').className = 'green';
             greenItem++
+        }
+    })
+
+    $(`.batman`).on('click', function () {
+        if (enabled === 6) {
+            $(this).addClass("blueSky");
+            $(this).removeClass('batman');
+            document.getElementById('objects').className = 'batman';
+            batmanItem++
         }
     })
 
@@ -187,23 +205,93 @@ minecraft.newBg = function () {
         if (enabled == 4 && this.className == "blueSky draw" || this.className == "draw blueSky") {
             var i = $(this).data("Hcoordonate");
             var j = $(this).data("Vcoordonate");
-            
             if (!$("#" + (i + 1) + "-" + j).hasClass("blueSky")) {
-                $(this).removeClass("green blueSky stone wood ground groundHerb");
                 var bg = document.getElementById('objects').className;
-                $(this).addClass(`${bg}`);
-               if(bg == "green"){
-                    greenItem --
-                } else if(bg == "ground"){
+
+                if (bg == "green" && greenItem > 0) {
+                    $(this).removeClass("blueSky");
+                    $(this).addClass(`${bg}`)
+                    greenItem--
+                    
+                    $(this).on('click', function () {
+                        if (enabled === 5) {
+                            $(this).addClass("blueSky");
+                            $(this).removeClass('green');
+                            document.getElementById('objects').className = 'green';
+                            greenItem++
+                        }
+                    })
+
+                } else if (bg == "ground" && groundItem > 0) {
+                    $(this).removeClass("blueSky");
+                    $(this).addClass(`${bg}`)
                     groundItem--
-                }else if(bg == "groundHerb"){
+
+                    $(this).on('click', function () {
+                        if (enabled === 1) {
+                            $(this).addClass("blueSky");
+                            $(this).removeClass('ground');
+                            document.getElementById('objects').className = 'ground';
+                            groundItem++
+                        }
+                    })
+
+                } else if (bg == "groundHerb" && groundHerbItem > 0) {
+                    $(this).removeClass("blueSky");
+                    $(this).addClass(`${bg}`)
                     groundHerbItem--
-                }else if(bg == "stone"){
+
+                    $(this).on('click', function () {
+                        if (enabled === 1) {
+                            $(this).addClass("blueSky");
+                            $(this).removeClass('groundHerb');
+                            document.getElementById('objects').className = 'groundHerb';
+                            groundHerbItem++
+                        }
+                    })
+
+                } else if (bg == "stone" && stoneItem > 0) {
+                    $(this).removeClass("blueSky");
+                    $(this).addClass(`${bg}`)
                     stoneItem--
-                }else if(bg == "wood"){
+
+                    $(this).on('click', function () {
+                        if (enabled === 3) {
+                            $(this).addClass("blueSky");
+                            $(this).removeClass('stone');
+                            document.getElementById('objects').className = 'stone';
+                            stoneItem++
+                        }
+                    })
+                } else if (bg == "wood" && woodItem > 0) {
+                    $(this).removeClass("blueSky");
+                    $(this).addClass(`${bg}`)
                     woodItem--
+
+                    $(this).on('click', function () {
+                        if (enabled === 2) {
+                            $(this).addClass("blueSky");
+                            $(this).removeClass('wood');
+                            document.getElementById('objects').className = 'wood';
+                            woodItem++;
+                        }
+                    })
+
+                } else if (bg == "batman" && batmanItem > 0) {
+                    $(this).removeClass("blueSky");
+                    $(this).addClass(`${bg}`)
+                    batmanItem--
+
+                    $(this).on('click', function () {
+                        if (enabled === 6) {
+                            $(this).addClass("blueSky");
+                            $(this).removeClass('batman');
+                            document.getElementById('objects').className = 'batman';
+                            batmanItem++;
+                        }
+                    })
+
                 }
-                minecraft.features();
             }
         }
     })

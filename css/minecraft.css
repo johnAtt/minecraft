@@ -4,6 +4,8 @@ body{
 
 .mainPage{
   display:none;
+  margin:0;
+  padding-right:40px;
 }
 
 .startPage{
@@ -28,14 +30,14 @@ button{
   background-repeat: no-repeat;
 }
 
-.col-6.paddingCol, .col-3.paddingCol{
+.col-11.paddingCol, .col-1.paddingCol{
     padding: 0;
 }
 
 #board{
     display:inline-block;
     float:right;
-    width:600px;
+    width:1200px;
     height:600px;
     position: relative;
     box-sizing: border-box;
@@ -125,14 +127,14 @@ button{
       display:block;
       position:relative;
       right:0;
-      width:50%;
+      width:100%;
       height:600px;
       background-color:black;
       opacity:0.8;
 
   }
 
-  #axe, #shovel, #pioche, #objects{
+  #axe, #shovel,#gun, #pioche, #shear, #objects{
     display: block !important ;
       height:60px;
       width:60px;
@@ -140,8 +142,8 @@ button{
       margin:auto;
       margin-bottom: 30px;
       position: relative;
-      top:30%;
-      transform: translateY(-30%);
+      top: 10%;
+      transform: translateY(-10%);
   }
 
   #objects{
@@ -150,12 +152,16 @@ button{
       margin-top: -15px;
   }
 
-  #shovel, #pioche, #axe{
+  #shovel, #pioche, #shear,#axe, #gun{
     background-image: url("../pictures/shovel.png");
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat
   }
+
+  .shear{
+    cursor : url(../pictures/shear.cur), auto;
+}
 
   .shovel{
       cursor : url(../pictures/shovel.cur), auto;
@@ -169,10 +175,21 @@ button{
       cursor : url(../pictures/pickaxe.cur), auto;
   }
 
+  #gun{
+    background-image: url("../pictures/gun.png");
+  }
 
   #axe{
     background-image: url("../pictures/axe.png");
   }
+  #shear{
+    background-image: url("../pictures/shear.png");
+  }
   .axe{
       cursor : url(../pictures/axe.cur), auto;
   }
+
+
+  .gun{
+    cursor : url(../pictures/target.cur), auto;
+}
