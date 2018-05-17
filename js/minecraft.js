@@ -1,5 +1,5 @@
 var minecraft = {};
-var enabled = 0;
+var enabled = 0; var woodItem = 0; var stoneItem = 0; var groundItem = 0; var greenItem = 0; var groundHerbItem = 0;
 var map = [
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 7, 0, 0, 0],
@@ -26,13 +26,8 @@ var map = [
 
 minecraft.start = function () {
     minecraft.layOut();
-    minecraft.features();
-    minecraft.featuresGround();
-    minecraft.featuresGroundHerb();
-    minecraft.featuresStone();
-    minecraft.featuresWood();
-    minecraft.featuresGreen();
     minecraft.newBg();
+    minecraft.features();
 }
 
 minecraft.layOut = function () {
@@ -80,7 +75,7 @@ minecraft.layOut = function () {
                 $(green).addClass('draw');
                 $(green).data("Hcoordonate", i);
                 $(green).data("Vcoordonate", j);
-                $(green).attr('id',  i + '-' + j);
+                $(green).attr('id', i + '-' + j);
             } else if (map[i][j] == 5) {
                 var stone = document.createElement('div');
                 $('#board').append($(stone));
@@ -125,73 +120,82 @@ minecraft.features = function () {
     $(`#objects`).on('click', function () {
         enabled = 4
     })
-}
 
-
-minecraft.featuresGround = function () {
     $(`.ground`).on('click', function () {
         if (enabled == 1) {
             $(this).addClass("blueSky");
             $(this).removeClass('ground');
             document.getElementById('objects').className = 'ground';
+            groundItem++
         }
     })
-}
 
-minecraft.featuresGroundHerb = function () {
+
+
     $(`.groundHerb`).on('click', function () {
-        if (enabled == 1) {
+        if (enabled == 1 ) {
             $(this).addClass("blueSky");
             $(this).removeClass('groundHerb');
             document.getElementById('objects').className = 'groundHerb';
+            groundHerbItem++
         }
     })
-}
 
-minecraft.featuresStone = function () {
+
+
     $(`.stone`).on('click', function () {
         if (enabled == 3) {
             $(this).addClass("blueSky");
             $(this).removeClass('stone');
             document.getElementById('objects').className = 'stone';
+            stoneItem++
         }
     })
-}
 
-minecraft.featuresWood = function () {
+
+
     $(`.wood`).on('click', function () {
         if (enabled == 2) {
             $(this).addClass("blueSky");
             $(this).removeClass('wood');
             document.getElementById('objects').className = 'wood';
+            woodItem++;
         }
     })
-}
-minecraft.featuresGreen = function () {
+
     $(`.green`).on('click', function () {
         if (enabled == 2) {
             $(this).addClass("blueSky");
             $(this).removeClass('green');
             document.getElementById('objects').className = 'green';
+            greenItem++
         }
     })
+
 }
-var list;
+
 minecraft.newBg = function () {
     $(`.draw`).on('click', function () {
         if (enabled == 4 && this.className == "blueSky draw" || this.className == "draw blueSky") {
             var i = $(this).data("Hcoordonate");
             var j = $(this).data("Vcoordonate");
-            if (!$("#" + (i+1) + "-" + j).hasClass("blueSky")) {
+            
+            if (!$("#" + (i + 1) + "-" + j).hasClass("blueSky")) {
                 $(this).removeClass("green blueSky stone wood ground groundHerb");
                 var bg = document.getElementById('objects').className;
                 $(this).addClass(`${bg}`);
+               if(bg == "green"){
+                    greenItem --
+                } else if(bg == "ground"){
+                    groundItem--
+                }else if(bg == "groundHerb"){
+                    groundHerbItem--
+                }else if(bg == "stone"){
+                    stoneItem--
+                }else if(bg == "wood"){
+                    woodItem--
+                }
                 minecraft.features();
-                minecraft.featuresGround();
-                minecraft.featuresGroundHerb();
-                minecraft.featuresStone();
-                minecraft.featuresWood();
-                minecraft.featuresGreen();
             }
         }
     })
