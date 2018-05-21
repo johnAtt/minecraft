@@ -29,7 +29,6 @@ minecraft.start = function () {
     minecraft.newBg();
     minecraft.features();
     minecraft.inventory();
-    minecraft.characters();
 }
 
 minecraft.layOut = function () {
@@ -38,62 +37,31 @@ minecraft.layOut = function () {
             if (map[i][j] == 1) {
                 var ground = document.createElement('div');
                 $('#board').append($(ground));
-                $(ground).addClass('ground');
-                $(ground).addClass('draw');
-                $(ground).data('Hcoordonate', i);
-                $(ground).data('Vcoordonate', j);
-                $(ground).attr('id', '' + i + '-' + j);
-
-            }
-            else if (map[i][j] == 2) {
+                $(ground).addClass('ground draw').data('Hcoordonate', i).data('Vcoordonate', j).attr('id', '' + i + '-' + j);
+            } else if (map[i][j] == 2) {
                 var floor = document.createElement('div');
                 $('#board').append($(floor));
-                $(floor).addClass('groundHerb');
-                $(floor).addClass('draw');
-                $(floor).data("Hcoordonate", i);
-                $(floor).data("Vcoordonate", j);
-                $(floor).attr('id', i + '-' + j);
-            }
-            else if (map[i][j] == 0) {
+                $(floor).addClass('groundHerb draw').data("Hcoordonate", i).data("Vcoordonate", j).attr('id', i + '-' + j);
+            } else if (map[i][j] == 0) {
                 var blueSky = document.createElement('div');
                 $('#board').append($(blueSky));
-                $(blueSky).addClass("blueSky");
-                $(blueSky).addClass('draw');
-                $(blueSky).data("Hcoordonate", i);
-                $(blueSky).data("Vcoordonate", j);
-                $(blueSky).attr('id', i + '-' + j);
+                $(blueSky).addClass("blueSky draw").data("Hcoordonate", i).data("Vcoordonate", j).attr('id', i + '-' + j);
             } else if (map[i][j] == 3) {
                 var wood = document.createElement('div');
                 $('#board').append($(wood));
-                $(wood).addClass("wood");
-                $(wood).addClass('draw');
-                $(wood).data("Hcoordonate", i);
-                $(wood).data("Vcoordonate", j);
-                $(wood).attr('id', i + '-' + j);
+                $(wood).addClass("wood draw").data("Hcoordonate", i).data("Vcoordonate", j).attr('id', i + '-' + j);
             } else if (map[i][j] == 4) {
                 var green = document.createElement('div');
                 $('#board').append($(green));
-                $(green).addClass("green");
-                $(green).addClass('draw');
-                $(green).data("Hcoordonate", i);
-                $(green).data("Vcoordonate", j);
-                $(green).attr('id', i + '-' + j);
+                $(green).addClass("green draw").data("Hcoordonate", i).data("Vcoordonate", j).attr('id', i + '-' + j);
             } else if (map[i][j] == 5) {
                 var stone = document.createElement('div');
                 $('#board').append($(stone));
-                $(stone).addClass("stone");
-                $(stone).addClass('draw');
-                $(stone).data("Hcoordonate", i);
-                $(stone).data("Vcoordonate", j);
-                $(stone).attr('id', i + '-' + j);
+                $(stone).addClass("stone draw").data("Hcoordonate", i).data("Vcoordonate", j).attr('id', i + '-' + j);
             } else if (map[i][j] == 6) {
                 var batman = document.createElement('div');
                 $('#board').append($(batman));
-                $(batman).addClass("batman");
-                $(batman).addClass('draw');
-                $(batman).data("Hcoordonate", i);
-                $(batman).data("Vcoordonate", j);
-                $(batman).attr('id', i + '-' + j);
+                $(batman).addClass("batman draw").data("Hcoordonate", i).data("Vcoordonate", j).attr('id', i + '-' + j);
             } else if (map[i][j] == 7) {
                 var cloud = document.createElement('div');
                 $('#board').append($(cloud));
@@ -348,25 +316,6 @@ minecraft.inventory = function () {
     })
     $('#objects0').on('click', function () {
         document.getElementById('objects').className = 'green';
-    })
-}
-
-minecraft.characters = function () {
-    window.addEventListener('keydown', function (event) {
-        var key = event.key;
-        for (var i = 0; i < map.length; i++) {
-            for (var j = 0; j < map[i].length; j++) {
-                if (key === "ArrowLeft") {
-                    if ($("#" + (i) + "-" + j).hasClass("batman draw")) {
-                        $("#" + (i) + "-" + j).removeClass("batman draw");
-                        if ($("#" + (i) + "-" + (j - 1)).hasClass("blueSky draw"));
-                        $("#" + (i) + "-" + (j - 1)).removeClass("blueSky draw");
-                        $("#" + (i) + "-" + (j - 1)).addClass("batman");
-                        return;
-                    }
-                }
-            }
-        }
     })
 }
 
