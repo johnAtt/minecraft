@@ -1,5 +1,5 @@
 var minecraft = {};
-var enabled = 0;var batmanItem=0; var woodItem = 0; var stoneItem = 0; var groundItem = 0; var greenItem = 0; var groundHerbItem = 0;
+var enabled = 0; var batmanItem = 0; var woodItem = 0; var stoneItem = 0; var groundItem = 0; var greenItem = 0; var groundHerbItem = 0;
 var map = [
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 7, 0, 0, 0],
@@ -28,6 +28,8 @@ minecraft.start = function () {
     minecraft.layOut();
     minecraft.newBg();
     minecraft.features();
+    minecraft.inventory();
+    minecraft.characters();
 }
 
 minecraft.layOut = function () {
@@ -125,8 +127,8 @@ minecraft.features = function () {
         $('#board').addClass("pioche");
     })
     $(`#objects`).on('click', function () {
-      $('#board').removeClass();
-      $('#board').addClass("hand");
+        $('#board').removeClass();
+        $('#board').addClass("hand");
         enabled = 4
     })
 
@@ -147,7 +149,9 @@ minecraft.features = function () {
             $(this).addClass("blueSky");
             $(this).removeClass('ground');
             document.getElementById('objects').className = 'ground';
+            document.getElementById('objects1').className = 'ground';
             groundItem++
+            $(".text-content1").text(`${groundItem}`);
         }
     })
 
@@ -156,7 +160,9 @@ minecraft.features = function () {
             $(this).addClass("blueSky");
             $(this).removeClass('groundHerb');
             document.getElementById('objects').className = 'groundHerb';
+            document.getElementById('objects2').className = 'groundHerb';
             groundHerbItem++
+            $(".text-content2").text(`${groundHerbItem}`);
         }
     })
 
@@ -166,7 +172,9 @@ minecraft.features = function () {
             $(this).addClass("blueSky");
             $(this).removeClass('stone');
             document.getElementById('objects').className = 'stone';
+            document.getElementById('objects3').className = 'stone';
             stoneItem++
+            $(".text-content3").text(`${stoneItem}`);
         }
     })
 
@@ -177,7 +185,9 @@ minecraft.features = function () {
             $(this).addClass("blueSky");
             $(this).removeClass('wood');
             document.getElementById('objects').className = 'wood';
+            document.getElementById('objects4').className = 'wood';
             woodItem++;
+            $(".text-content4").text(`${woodItem}`);
         }
     })
 
@@ -186,7 +196,9 @@ minecraft.features = function () {
             $(this).addClass("blueSky");
             $(this).removeClass('green');
             document.getElementById('objects').className = 'green';
+            document.getElementById('objects0').className = 'green';
             greenItem++
+            $(".text-content0").text(`${greenItem}`);
         }
     })
 
@@ -195,7 +207,9 @@ minecraft.features = function () {
             $(this).addClass("blueSky");
             $(this).removeClass('batman');
             document.getElementById('objects').className = 'batman';
+            document.getElementById('objects5').className = 'batman';
             batmanItem++
+            $(".text-content5").text(`${batmanItem}`);
         }
     })
 
@@ -213,13 +227,16 @@ minecraft.newBg = function () {
                     $(this).removeClass("blueSky");
                     $(this).addClass(`${bg}`)
                     greenItem--
-                    
+                    $(".text-content0").text(`${greenItem}`);
+
                     $(this).on('click', function () {
                         if (enabled === 5) {
                             $(this).addClass("blueSky");
                             $(this).removeClass('green');
                             document.getElementById('objects').className = 'green';
+                            document.getElementById('objects0').className = 'green';
                             greenItem++
+                            $(".text-content0").text(`${greenItem}`);
                         }
                     })
 
@@ -227,13 +244,16 @@ minecraft.newBg = function () {
                     $(this).removeClass("blueSky");
                     $(this).addClass(`${bg}`)
                     groundItem--
+                    $(".text-content1").text(`${groundItem}`);
 
                     $(this).on('click', function () {
                         if (enabled === 1) {
                             $(this).addClass("blueSky");
                             $(this).removeClass('ground');
                             document.getElementById('objects').className = 'ground';
+                            document.getElementById('objects1').className = 'ground';
                             groundItem++
+                            $(".text-content1").text(`${groundItem}`);
                         }
                     })
 
@@ -241,13 +261,16 @@ minecraft.newBg = function () {
                     $(this).removeClass("blueSky");
                     $(this).addClass(`${bg}`)
                     groundHerbItem--
+                    $(".text-content2").text(`${groundHerbItem}`);
 
                     $(this).on('click', function () {
                         if (enabled === 1) {
                             $(this).addClass("blueSky");
                             $(this).removeClass('groundHerb');
                             document.getElementById('objects').className = 'groundHerb';
+                            document.getElementById('objects2').className = 'groundHerb';
                             groundHerbItem++
+                            $(".text-content2").text(`${groundHerbItem}`);
                         }
                     })
 
@@ -255,26 +278,32 @@ minecraft.newBg = function () {
                     $(this).removeClass("blueSky");
                     $(this).addClass(`${bg}`)
                     stoneItem--
+                    $(".text-content3").text(`${stoneItem}`);
 
                     $(this).on('click', function () {
                         if (enabled === 3) {
                             $(this).addClass("blueSky");
                             $(this).removeClass('stone');
                             document.getElementById('objects').className = 'stone';
+                            document.getElementById('objects3').className = 'stone';
                             stoneItem++
+                            $(".text-content3").text(`${stoneItem}`);
                         }
                     })
                 } else if (bg == "wood" && woodItem > 0) {
                     $(this).removeClass("blueSky");
                     $(this).addClass(`${bg}`)
                     woodItem--
+                    $(".text-content4").text(`${woodItem}`);
 
                     $(this).on('click', function () {
                         if (enabled === 2) {
                             $(this).addClass("blueSky");
                             $(this).removeClass('wood');
                             document.getElementById('objects').className = 'wood';
+                            document.getElementById('objects4').className = 'wood';
                             woodItem++;
+                            $(".text-content4").text(`${woodItem}`);
                         }
                     })
 
@@ -282,16 +311,59 @@ minecraft.newBg = function () {
                     $(this).removeClass("blueSky");
                     $(this).addClass(`${bg}`)
                     batmanItem--
+                    $(".text-content5").text(`${batmanItem}`);
 
                     $(this).on('click', function () {
                         if (enabled === 6) {
                             $(this).addClass("blueSky");
                             $(this).removeClass('batman');
                             document.getElementById('objects').className = 'batman';
+                            document.getElementById('objects5').className = 'batman';
                             batmanItem++;
+                            $(".text-content5").text(`${batmanItem}`);
                         }
                     })
 
+                }
+            }
+        }
+    })
+}
+
+minecraft.inventory = function () {
+    $('#objects5').on('click', function () {
+        document.getElementById('objects').className = 'batman';
+    })
+    $('#objects4').on('click', function () {
+        document.getElementById('objects').className = 'wood';
+    })
+    $('#objects3').on('click', function () {
+        document.getElementById('objects').className = 'stone';
+    })
+    $('#objects2').on('click', function () {
+        document.getElementById('objects').className = 'groundHerb';
+    })
+    $('#objects1').on('click', function () {
+        document.getElementById('objects').className = 'ground';
+    })
+    $('#objects0').on('click', function () {
+        document.getElementById('objects').className = 'green';
+    })
+}
+
+minecraft.characters = function () {
+    window.addEventListener('keydown', function (event) {
+        var key = event.key;
+        for (var i = 0; i < map.length; i++) {
+            for (var j = 0; j < map[i].length; j++) {
+                if (key === "ArrowLeft") {
+                    if ($("#" + (i) + "-" + j).hasClass("batman draw")) {
+                        $("#" + (i) + "-" + j).removeClass("batman draw");
+                        if ($("#" + (i) + "-" + (j - 1)).hasClass("blueSky draw"));
+                        $("#" + (i) + "-" + (j - 1)).removeClass("blueSky draw");
+                        $("#" + (i) + "-" + (j - 1)).addClass("batman");
+                        return;
+                    }
                 }
             }
         }

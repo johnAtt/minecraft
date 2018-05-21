@@ -30,7 +30,7 @@ button{
   background-repeat: no-repeat;
 }
 
-.col-11.paddingCol, .col-1.paddingCol{
+.col-10.paddingCol, .col-2.paddingCol{
     padding: 0;
 }
 
@@ -120,7 +120,7 @@ button{
     background-image: url("../pictures/batman.jpg");
     background-position: center;
     background-size: contain;
-    background-repeat: no-repeat
+    background-repeat: no-repeat;
   }
 
   #features{
@@ -134,25 +134,51 @@ button{
 
   }
 
-  #axe, #shovel,#gun, #pioche, #shear, #objects{
-    display: block !important ;
+  #axe, #shovel,#gun, #pioche, #shear, .feature.objects{
+      display: block ;
       height:60px;
       width:60px;
       border:2px solid white;
       margin:auto;
-      margin-bottom: 30px;
+      margin-bottom: 10px;
       position: relative;
-      top: 10%;
-      transform: translateY(-10%);
+      top:20px;
+      text-align: center;
+  }
+  
+
+  .inventory {
+    background: rgba(0,0,0,0.5);
+    color: white;
+    cursor: pointer;
+    position: relative;
+    color:red;
+    font-weight: 800;
+ 
+  }
+
+  #objects0,#objects1,#objects2,#objects3,#objects4,#objects5,#objects{
+    display:inline-block;
+    width:30px;
+    height:30px;
+    margin: auto;
+    position: relative;
+    top:30px;
+    left:10px;
+    margin-bottom: 10px;
+
+
   }
 
   #objects{
-      width:32px;
-      height:32px;
-      margin-top: -15px;
+    width:60px;
+    height:60px;
+    left:50%;
+    transform: translateX(-50%);
+
   }
 
-  #shovel, #pioche, #shear,#axe, #gun{
+  #shovel, #pioche, #shear, #axe, #gun{
     background-image: url("../pictures/shovel.png");
     background-position: center;
     background-size: contain;
